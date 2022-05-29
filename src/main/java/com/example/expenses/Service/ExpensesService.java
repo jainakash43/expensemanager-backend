@@ -1,5 +1,6 @@
 package com.example.expenses.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,20 @@ public class ExpensesService {
 		return expenseRepository.save(expenses);
 		
 		
+	}
+
+
+
+	public List<Expenses> getExpenseAtGivenDate(String date) {
+		// TODO Auto-generated method stub
+		return expenseRepository.findBydateofexpense(date);
+	}
+
+
+
+	public List<Expenses> getExpenseBetweenDates(Date f, Date t) {
+		// TODO Auto-generated method stub
+		return expenseRepository.findExpensesBetweenDates(f, t);
 	}
 	
 	
