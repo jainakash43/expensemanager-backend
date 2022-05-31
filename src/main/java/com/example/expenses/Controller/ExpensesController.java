@@ -1,5 +1,6 @@
 package com.example.expenses.Controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,7 +52,15 @@ public class ExpensesController {
 		return new ResponseEntity<>(exp,HttpStatus.CREATED);
 	}
 	
-	
+	@GetMapping("/monthlyExpenses")
+	public String getExpensesInMonth()
+	{
+		LocalDate date =  LocalDate.now();
+		
+	   
+	    
+	    return date.getMonth().toString();
+	}
 	
 	
 	
