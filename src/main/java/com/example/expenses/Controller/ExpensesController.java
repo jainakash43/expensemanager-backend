@@ -1,6 +1,7 @@
 package com.example.expenses.Controller;
 
 
+import java.time.LocalDate;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,8 +32,7 @@ public class ExpensesController {
 	@Autowired
 	private ExpensesService expensesService;
 	
-	
-	
+
 	@PostMapping("/addExpense")
 	public ResponseEntity<Expenses> PostExpense(@RequestBody Expenses expenses)
 	{
@@ -47,9 +47,19 @@ public class ExpensesController {
 		return new ResponseEntity<>(exp,HttpStatus.CREATED);
 	}
 	
-	
-	
-	
+	@GetMapping("/getExpensesOfCurrentMonth")
+	public List<Expenses> getExpensesofCurrentMonth()
+	{
+		
+		List<Expenses> temp = expensesService.getExpensesofCurrentMonth();
+		
+		 if(temp.isEmpty())
+			{
+				throw new ResourceNotFoundException("No Data Available");
+			}
+	    
+	    return temp;
+	}
 	
 	
 	
