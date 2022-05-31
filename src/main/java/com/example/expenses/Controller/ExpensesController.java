@@ -32,18 +32,6 @@ public class ExpensesController {
 	private ExpensesService expensesService;
 	
 	
-	@GetMapping("/all")
-	public List<Expenses> getAllExpenses()
-	{
-		List<Expenses> temp = expensesService.getAllExpenses();
-		
-	    if(temp.isEmpty())
-		{
-			throw new ResourceNotFoundException("No Data Available");
-		}
-		
-		return  expensesService.getAllExpenses();
-	}
 	
 	@PostMapping("/addExpense")
 	public ResponseEntity<Expenses> PostExpense(@RequestBody Expenses expenses)

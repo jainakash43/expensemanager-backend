@@ -18,10 +18,7 @@ public class ExpensesService {
 	
 	
 	
-	public List<Expenses> getAllExpenses()
-	{
-		return expenseRepository.findAll();
-	}
+	
 
 
 
@@ -40,17 +37,7 @@ public class ExpensesService {
 
 
 
-	public List<Expenses> getExpenseAtGivenDate(String date) {
-		// TODO Auto-generated method stub
-		return expenseRepository.findBydateofexpense(date);
-	}
-
-
-
-	public List<Expenses> getExpenseBetweenDates(Date f, Date t) {
-		// TODO Auto-generated method stub
-		return expenseRepository.findExpensesBetweenDates(f, t);
-	}
+	
 	
 	
 }

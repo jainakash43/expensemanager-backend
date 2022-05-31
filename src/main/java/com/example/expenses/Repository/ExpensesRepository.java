@@ -14,11 +14,7 @@ import com.example.expenses.Entity.Expenses;
 @Repository
 public interface ExpensesRepository extends JpaRepository<Expenses, Long> {
 
-	List<Expenses> findBydateofexpense(String date);
 	
-	@Query(value=" select * from expenses where to_date(expenses.dateofexpense,'DD MON YYYY') BETWEEN :f AND :t ",nativeQuery=true)
-	List<Expenses> findExpensesBetweenDates(@Param("f") Date f,@Param("t")Date t);
-
 }
 
 
