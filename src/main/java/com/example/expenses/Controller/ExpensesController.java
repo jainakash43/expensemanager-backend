@@ -55,11 +55,14 @@ public class ExpensesController {
 	@GetMapping("/monthlyExpenses")
 	public String getExpensesInMonth()
 	{
-		LocalDate date =  LocalDate.now();
+		LocalDate today =  LocalDate.now();
+		LocalDate firstDay = today.withDayOfMonth(1);
+		LocalDate lastDay = today.plusMonths(1).withDayOfMonth(1);
+		 
 		
 	   
 	    
-	    return date.getMonth().toString();
+	    return "firstDay :"+firstDay.toString()+ "lastDay :"+lastDay.toString();
 	}
 	
 	

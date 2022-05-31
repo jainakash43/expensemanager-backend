@@ -1,5 +1,7 @@
 package com.example.expenses.Service;
 
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,19 @@ public class ExpensesService {
 		}
 		
 		return expenseRepository.save(expenses);
+		
+		
+	}
+
+
+
+	public List<Expenses> getExpenseofCurrentMonth(LocalDate today) {
+		
+		LocalDate firstDayOfMonth = today.with(TemporalAdjusters.firstDayOfMonth());
+		LocalDate lastDayOfMonth = today.with(TemporalAdjusters.lastDayOfMonth());
+		
+		return null;
+		
 		
 		
 	}
