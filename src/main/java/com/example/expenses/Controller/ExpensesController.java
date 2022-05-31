@@ -59,36 +59,8 @@ public class ExpensesController {
 		return new ResponseEntity<>(exp,HttpStatus.CREATED);
 	}
 	
-	/*@GetMapping("/{date}")
-	public List<Expenses> getExpenseAtGivenDate(@PathVariable String date) 
-	{
-		  
-		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy");
-		 LocalDate parsedDate = LocalDate.parse(date, formatter);
-		 List<Expenses> temp = expensesService.getExpenseAtGivenDate(date);
-		
-		 return temp;
-	}
 	
-	@GetMapping("/between")
-	public List<Expenses> getExpenseBetweenDates(@RequestParam String from , @RequestParam String to)
-	{
-		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy");
-		 LocalDate parsedDate1 = LocalDate.parse(from, formatter);
-		 LocalDate parsedDate2 = LocalDate.parse(to, formatter);
-		 Date f = Date.valueOf(parsedDate1);
-		 Date t = Date.valueOf(parsedDate2);
-		 
-		 List<Expenses> temp = expensesService.getExpenseBetweenDates(f,t);
-		 
-		 return temp;
-		}
-		*/
-	@GetMapping("/test")
-	public String test()
-	{
-		return "success";
-	}
+	
 	
 	
 	
