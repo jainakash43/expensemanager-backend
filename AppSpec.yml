@@ -1,0 +1,6 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /target/expenses.jar.original
+    destination: /ubuntu/project

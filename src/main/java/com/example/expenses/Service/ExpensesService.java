@@ -18,15 +18,6 @@ public class ExpensesService {
 	@Autowired
 	private ExpensesRepository expenseRepository;
 	
-	
-	
-	public List<Expenses> getAllExpenses()
-	{
-		return expenseRepository.findAll();
-	}
-
-
-
 	public  Expenses save(Expenses expenses) {
 		
 		Long id = expenses.getUtr();
@@ -39,9 +30,6 @@ public class ExpensesService {
 		
 		
 	}
-
-
-
 	public List<Expenses> getExpensesofCurrentMonth() {
 		
 		LocalDate today = LocalDate.now();
@@ -50,10 +38,8 @@ public class ExpensesService {
 		
 		return expenseRepository.findExpensesOfCurrentMonth(Date.valueOf(firstDayOfMonth),
 				                                            Date.valueOf(lastDayOfMonth));
-		
-		
-		
-	}
 	
+	}
+
 	
 }
