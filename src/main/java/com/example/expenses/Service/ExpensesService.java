@@ -1,5 +1,6 @@
 package com.example.expenses.Service;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.List;
@@ -41,12 +42,14 @@ public class ExpensesService {
 
 
 
-	public List<Expenses> getExpenseofCurrentMonth(LocalDate today) {
+	public List<Expenses> getExpensesofCurrentMonth() {
 		
+		LocalDate today = LocalDate.now();
 		LocalDate firstDayOfMonth = today.with(TemporalAdjusters.firstDayOfMonth());
 		LocalDate lastDayOfMonth = today.with(TemporalAdjusters.lastDayOfMonth());
 		
-		return null;
+		return expenseRepository.findExpensesOfCurrentMonth(Date.valueOf(firstDayOfMonth),
+				                                            Date.valueOf(lastDayOfMonth));
 		
 		
 		

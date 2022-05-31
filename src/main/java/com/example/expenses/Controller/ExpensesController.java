@@ -25,19 +25,6 @@ public class ExpensesController {
 	private ExpensesService expensesService;
 	
 	
-	@GetMapping("/all")
-	public List<Expenses> getAllExpenses()
-	{
-		List<Expenses> temp = expensesService.getAllExpenses();
-		
-	    if(temp.isEmpty())
-		{
-			throw new ResourceNotFoundException("No Data Available");
-		}
-		
-		return  expensesService.getAllExpenses();
-	}
-	
 	@PostMapping("/addExpense")
 	public ResponseEntity<Expenses> PostExpense(@RequestBody Expenses expenses)
 	{
@@ -52,20 +39,19 @@ public class ExpensesController {
 		return new ResponseEntity<>(exp,HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/monthlyExpenses")
-	public String getExpensesInMonth()
+	@GetMapping("/getExpensesOfCurrentMonth")
+	public List<Expenses> getExpensesofCurrentMonth()
 	{
-		LocalDate today =  LocalDate.now();
-		LocalDate firstDay = today.withDayOfMonth(1);
-		LocalDate lastDay = today.plusMonths(1).withDayOfMonth(1);
-		 
 		
-	   
+		List<Expenses> temp = expensesService.getExpensesofCurrentMonth();
+		
+		 if(temp.isEmpty())
+			{
+				throw new ResourceNotFoundException("No Data Available");
+			}
 	    
-	    return "firstDay :"+firstDay.toString()+ "lastDay :"+lastDay.toString();
+	    return temp;
 	}
-	
-	
 	
 	
 }
