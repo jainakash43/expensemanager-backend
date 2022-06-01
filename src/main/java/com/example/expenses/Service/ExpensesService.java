@@ -40,6 +40,10 @@ public class ExpensesService {
 				                                            Date.valueOf(lastDayOfMonth));
 	
 	}
+	public List<Expenses> getAll() {
+
+		return expenseRepository.findAll();
+	}
 
 	
 }
