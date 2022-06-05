@@ -19,6 +19,13 @@ jobs:
         run: mvn clean install
       - name: Present Working Directory
         run: pwd
+      - name: Upload Build Artifacts
+        run: actions/upload-artifacts@v2
+        with: 
+          name:BuildArtifacts
+          path:expensemanager-backend
+      - name: Present Working Directory
+        run:pwd
       
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
