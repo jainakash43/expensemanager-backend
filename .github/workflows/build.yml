@@ -4,6 +4,9 @@ on:
   push:
     branches: master
 
+env:
+  DAY_OF_WEEK: Monday
+
 jobs:
    build:
      runs-on: ubuntu-latest
@@ -18,16 +21,12 @@ jobs:
       - name: Maven Package
         run: mvn clean install
 
-      - name: Present Working Directory
-        run: pwd
+     
 
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifacts@v2.2.0
-        with: 
-          path: expensemanager-backend/**
+     
 
       - name: Present Working Directory
-        run: pwd
+        run:  echo ${{GITHUB_ACTION_REPOSITORY}}
       
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
