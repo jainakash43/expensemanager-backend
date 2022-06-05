@@ -20,7 +20,7 @@ jobs:
       - name: Present Working Directory
         run: pwd
       - name: Upload Build Artifacts
-        run: actions/upload-artifacts@v2
+        uses: actions/upload-artifacts@v2
         with: 
           name:BuildArtifacts
           path:expensemanager-backend
