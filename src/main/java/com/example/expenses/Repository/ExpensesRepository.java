@@ -21,6 +21,15 @@ public interface ExpensesRepository extends JpaRepository<Expenses, Long> {
 			          + "to_date(dateofexpense,'DD Month YYYY') <= :lastDay"
 			          + " ORDER BY to_date(dateofexpense,'DD Month YYYY') ", nativeQuery=true)
 	List<Expenses> findExpensesOfCurrentMonth(@Param("firstDay") Date f,@Param("lastDay")Date l);
+	
+	
+	
+	@Query(value=" select sum(amount) from expenses"
+	          + " where to_date(dateofexpense,'DD Month YYYY') >= :firstDay AND "
+	          + "to_date(dateofexpense,'DD Month YYYY') <= :lastDay", nativeQuery=true)
+
+	int findTotalExpensesOfCurrentMonth(@Param("firstDay") Date f,@Param("lastDay")Date l);
+		
 
   
 }

@@ -61,6 +61,15 @@ public class ExpensesController {
 	    return temp;
 	}
 	
+	@GetMapping("/getTotalExpensesofCurrentMonth")
+	public int  getTotalExpensesofCurrentMonth()
+	{
+		int total = 0;
+		
+		total = expensesService.getTotalExpensesofCurrentMonth();
+		
+		return total;
+	}
 	
 	
 	

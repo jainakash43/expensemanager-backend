@@ -44,6 +44,18 @@ public class ExpensesService {
 
 		return expenseRepository.findAll();
 	}
+	
+	
+	public int getTotalExpensesofCurrentMonth() {
+	   
+		LocalDate today = LocalDate.now();
+		LocalDate firstDayOfMonth = today.with(TemporalAdjusters.firstDayOfMonth());
+		LocalDate lastDayOfMonth = today.with(TemporalAdjusters.lastDayOfMonth());
+		
+		
+		return expenseRepository.findTotalExpensesOfCurrentMonth(Date.valueOf(firstDayOfMonth),
+                Date.valueOf(lastDayOfMonth));
+	}
 
 	
 }
