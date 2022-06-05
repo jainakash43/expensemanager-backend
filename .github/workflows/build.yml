@@ -20,6 +20,11 @@ jobs:
           cache: maven
       - name: Maven Package
         run: mvn clean install
+      
+     - name: upload artifacts
+        uses: actions/upload-artifacts@v3
+        with: 
+           name: artifacts
 
      
 
@@ -28,11 +33,7 @@ jobs:
       - name: Present Working Directory
         run:  echo ${{ github.repository }}
 
-      - name: upload artifacts
-        uses: actions/checkout@v3
-        uses: actions/upload-artifacts@v3
-        with: 
-           name: artifacts
+     
            
 
       
