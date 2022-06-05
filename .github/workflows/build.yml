@@ -25,7 +25,7 @@ jobs:
           name:BuildArtifacts
           path:expensemanager-backend
       - name: Present Working Directory
-        run:pwd
+        run: pwd
       
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
