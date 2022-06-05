@@ -27,6 +27,12 @@ jobs:
 
       - name: Present Working Directory
         run:  echo ${{ github.repository }}
+
+      - name: upload artifacts
+        uses: actions/upload-artifacts@v3
+        with: 
+           name: artifacts
+
       
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
