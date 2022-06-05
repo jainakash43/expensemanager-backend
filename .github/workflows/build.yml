@@ -22,7 +22,7 @@ jobs:
         run: mvn clean install
       
       - name : upload artifacts
-        run: actions/upload-artifacts@v1
+        uses: actions/upload-artifacts@v1
 
      
 
