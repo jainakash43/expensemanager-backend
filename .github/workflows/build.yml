@@ -47,4 +47,4 @@ jobs:
 
 
       - name: Uploading files to s3
-        run: aws s3 sync ./expensemanager-backend s3://expensemanager-frontendtest 
+        run: aws s3 sync ./ s3://expensemanager-frontendtest 
