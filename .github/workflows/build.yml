@@ -21,12 +21,7 @@ jobs:
       - name: Maven Package
         run: mvn clean install
       
-      - name : upload artifacts
-        uses: actions/upload-artifact@v1
-        with:
-            name: artifacts
-            path: expensemanager-backend/
-            
+      
 
      
 
@@ -48,3 +43,8 @@ jobs:
       
       - name: Remove S3 content
         run: aws s3 rm --recursive s3://expensemanager-frontendtest
+
+
+
+      - name: Uploading files to s3
+        run: aws s3 sync ./public/ s3://expensemanager-frontendtest 
