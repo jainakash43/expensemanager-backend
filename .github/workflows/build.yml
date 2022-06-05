@@ -26,4 +26,6 @@ jobs:
            aws-access-key-id: ${{ secrets.AWSACCESSKEYID }}
            aws-secret-access-key: ${{ secrets.AWSSECRETACCESSKEY }}
            aws-region: "us-east-1"
-        
+      
+      - name: Remove S3 content
+        run: aws s3 rm --recursive s3://expensemanager-frontendtest
