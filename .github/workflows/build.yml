@@ -22,7 +22,7 @@ jobs:
         run: mvn clean install
       
       - name : upload artifacts
-        uses: actions/upload-artifacts@master
+        uses: actions/upload-artifact@v1
         with:
             repository:  ${{github.repository}}
 
