@@ -17,14 +17,15 @@ jobs:
           cache: maven
       - name: Maven Package
         run: mvn clean install
+
       - name: Present Working Directory
         run: pwd
+
       - name: Upload Build Artifacts
-        uses: actions/checkout@v1
         uses: actions/upload-artifacts@v3
         with: 
-          name: BuildArtifacts
           path: expensemanager-backend
+
       - name: Present Working Directory
         run: pwd
       
