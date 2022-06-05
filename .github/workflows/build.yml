@@ -21,10 +21,8 @@ jobs:
       - name: Maven Package
         run: mvn clean install
       
-     - name: upload artifacts
-        uses: actions/upload-artifacts@v3
-        with: 
-           name: artifacts
+      - name : upload artifacts
+        run: actions/upload-artifacts@v1
 
      
 
