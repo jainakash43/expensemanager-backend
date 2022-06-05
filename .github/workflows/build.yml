@@ -26,7 +26,7 @@ jobs:
      
 
       - name: Present Working Directory
-        run:  echo ${{GITHUB_ACTION_REPOSITORY}}
+        run:  echo {{ github.repository }}
       
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
