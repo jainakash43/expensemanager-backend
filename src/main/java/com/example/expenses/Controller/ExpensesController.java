@@ -26,7 +26,7 @@ import com.example.expenses.Service.ExpensesService;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = {"https://www.akash-finapp.in"} /*{"http://expensetest.s3-website-us-east-1.amazonaws.com","http://localhost:4200"}*/ )
+@CrossOrigin(origins = {"*"} /*{"http://expensetest.s3-website-us-east-1.amazonaws.com","http://localhost:4200"}*/ )
 public class ExpensesController {
 
 	@Autowired
