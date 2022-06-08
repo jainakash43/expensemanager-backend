@@ -46,7 +46,7 @@ public class ExpensesService {
 	}
 	
 	
-	public int getTotalExpensesofCurrentMonth() {
+	public int getTotalExpensesOfCurrentMonth() {
 	   
 		LocalDate today = LocalDate.now();
 		LocalDate firstDayOfMonth = today.with(TemporalAdjusters.firstDayOfMonth());
