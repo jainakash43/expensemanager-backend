@@ -66,7 +66,7 @@ public class ExpensesController {
 	{
 		int total = 0;
 		
-		total = expensesService.getTotalExpensesofCurrentMonth();
+		total = expensesService.getTotalExpensesOfCurrentMonth();
 		
 		return total;
 	}
