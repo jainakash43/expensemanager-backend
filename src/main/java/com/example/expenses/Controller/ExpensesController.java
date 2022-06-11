@@ -62,7 +62,7 @@ public class ExpensesController {
 	}
 	
 	@GetMapping("/getTotalExpensesOfCurrentMonth")
-	public int  getTotalExpensesOfCurrentMonth()
+	public int  getTotalExpensesofCurrentMonth()
 	{
 		int total = 0;
 		
