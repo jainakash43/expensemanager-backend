@@ -24,7 +24,7 @@ public interface ExpensesRepository extends JpaRepository<Expenses, Long> {
 	
 	
 	
-	@Query(value=" select COALESCE(0,sum(amount)) from expenses"
+	@Query(value=" select COALESCE(sum(amount),0) from expenses"
 	          + " where to_date(dateofexpense,'DD Month YYYY') >= :firstDay AND "
 	          + "to_date(dateofexpense,'DD Month YYYY') <= :lastDay", nativeQuery=true)
 
