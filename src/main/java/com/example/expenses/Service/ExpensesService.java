@@ -4,11 +4,8 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.example.expenses.Entity.Expenses;
 import com.example.expenses.Repository.ExpensesRepository;
 
@@ -56,6 +53,9 @@ public class ExpensesService {
 		return expenseRepository.findTotalExpensesOfCurrentMonth(Date.valueOf(firstDayOfMonth),
                 Date.valueOf(lastDayOfMonth));
 	}
+	
+	
+	
 
 	
 }
