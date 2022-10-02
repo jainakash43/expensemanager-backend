@@ -1,12 +1,7 @@
 package com.example.expenses.Controller;
 
 
-import java.time.LocalDate;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,11 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.expenses.Entity.Budget;
 import com.example.expenses.Entity.Expenses;
 import com.example.expenses.Exception.ResourceConflictException;
 import com.example.expenses.Exception.ResourceNotFoundException;
+import com.example.expenses.Service.BudgetService;
 import com.example.expenses.Service.ExpensesService;
 
 @RestController
@@ -31,6 +27,9 @@ public class ExpensesController {
 
 	@Autowired
 	private ExpensesService expensesService;
+	
+	@Autowired
+	private BudgetService budgetService;
 	
 
 	@PostMapping("/addExpense")
@@ -71,6 +70,27 @@ public class ExpensesController {
 		return total;
 	}
 	
+	
+	@GetMapping("/getBudget/{yearmon}")
+	public ResponseEntity<Budget> getMonthlyBudget(@PathVariable String yearmon)
+	{
+	
+	      Budget budget = budgetService.getBudget(yearmon);
+	      
+	      return new ResponseEntity<>(budget,HttpStatus.OK);
+	
+		
+	}
+	
+	@PostMapping("/setBudget/{amount}")
+	public ResponseEntity<Budget> setMonthlyBudget(@PathVariable int amount)
+	{
+		Budget budget = budgetService.save(amount);
+		return new ResponseEntity<>(budget,HttpStatus.OK);
+	}
+	
+	
+    
 	
 	
 	
